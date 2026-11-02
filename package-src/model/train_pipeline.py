@@ -1,4 +1,3 @@
-import numpy as np
 from config.core import config
 from pipeline import abandono_pipe
 from processing.data_manager import load_dataset, save_pipeline
@@ -20,7 +19,7 @@ def run_training() -> None:
         # for reproducibility
         random_state=config.model_config.random_state,
     )
-    #y_train = np.log(y_train)
+    # y_train = np.log(y_train)
     y_train = y_train.map(config.model_config.qual_mappings)
 
     # fit model
